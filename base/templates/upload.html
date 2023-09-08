@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Upload</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      }
+      h2 {
+        text-align: center;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      .custom-file-upload {
+        cursor: pointer;
+      }
+      .custom-file-upload:hover {
+        background-color: #e9e9e9;
+      }
+      button[type='submit'] {
+        display: block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      button[type='submit']:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Upload an Image</h2>
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input
+          class="custom-file-upload"
+          type="file"
+          id="file-upload"
+          name="file"
+          accept="image/*"
+          required
+        />
+        <p>Accepted formats: JPEG, PNG, GIF</p>
+        <button class="button" type="submit">Upload</button>
+      </form>
+    </div>
+  </body>
+</html>
