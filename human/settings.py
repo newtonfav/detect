@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-dnd8na1me5t31e3k()bte(b=!ym*goe$xcp($ese+@mnxewoy1
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'https://facedetector-pmp0.onrender.com',
+    'facedetector-pmp0.onrender.com',
 ]
 
 
