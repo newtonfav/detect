@@ -1,4 +1,4 @@
-<!-- success.html -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +7,6 @@
   </head>
   <body>
     <h1>{{ response }}</h1>
-    {% load static %}
     <img
       src="{% static image_url %}"
       alt="Image Alt Text"
