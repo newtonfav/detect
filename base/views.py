@@ -28,8 +28,8 @@ def upload_file(request):
 
             form.save()
             face_img = detect_face(f'./../media/uploads/{file_name}')
-            # os.remove(os.path.join(settings.MEDIA_ROOT,
-            #   f'./../media/uploads/{file_name}'))
+            os.remove(os.path.join(settings.MEDIA_ROOT,
+                                   f'./../media/uploads/{file_name}'))
 
             # Redirect to a success page or do something else
             # return redirect('success-page', arg1=image_url, arg2=face_img)
