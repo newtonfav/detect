@@ -4,6 +4,8 @@ from .forms import FileUploadForm
 from .utils import detect_face
 import os
 from django.conf import settings
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 def handler(image_url, face_img):
@@ -27,11 +29,12 @@ def upload_file(request):
             os.remove(os.path.join(settings.MEDIA_ROOT,
                       f'./../media/uploads/{file_name}'))
 
-            # image_url = f'{file_name}'
+            image_url = os.path.join(settings.STATIC_FILES,
+                                     'test.jpg')
 
             # Redirect to a success page or do something else
             # return redirect('success-page', arg1=image_url, arg2=face_img)
-            return render(request, 'success.html', {'response': face_img})
+            return render(request, 'success.html', {'response': face_img, 'image_url': image_url})
     else:
         form = FileUploadForm()
     return render(request, './upload.html', {'form': form})
