@@ -13,3 +13,4 @@ pytz==2023.3
 sqlparse==0.4.4
 tzdata==2023.3
 virtualenv==20.24.4
+gunicorn==19.7.1
