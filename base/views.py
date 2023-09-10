@@ -31,7 +31,7 @@ def upload_file(request):
 
             # Redirect to a success page or do something else
             # return redirect('success-page', arg1=image_url, arg2=face_img)
-            return render(request, 'success.html', {'response': face_img, 'image_url': 'test.jpg'})
+            return render(request, 'success.html', {'response': face_img})
     else:
         form = FileUploadForm()
     return render(request, './upload.html', {'form': form})
