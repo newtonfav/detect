@@ -24,24 +24,36 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = os.environ["SECRET_KEY"]
 SECRET_KEY = 'newtonfav_is_good_programmmer_randonw_string_ldl_so_odkeklskskkskk_lldne_dkkdkdks_djdjkdkd_randome'
 
-SECURE_HSTS_SECONDS = 31536000  # 1 year
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-
-CSRF_COOKIE_SECURE = True
-
-SECURE_HSTS_PRELOAD = True
-
-SESSION_COOKIE_SECURE = True
-
-SECURE_SSL_REDIRECT = True
-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+
+if not DEBUG:
+    # Tell Django to copy statics to the `staticfiles` directory
+    # in your application directory on Render.
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+    # Turn on WhiteNoise storage backend that takes care of compressing static files
+    # and creating unique names for each version so they can safely be cached forever.
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+    SECURE_HSTS_SECONDS = 31536000  # 1 year
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+    CSRF_COOKIE_SECURE = True
+
+    SECURE_HSTS_PRELOAD = True
+
+    SESSION_COOKIE_SECURE = True
+
+    SECURE_SSL_REDIRECT = True
+
+
 ALLOWED_HOSTS = [
     'facedetector-pmp0.onrender.com',
-    'localhost'
+    'localhost',
+    '127.0.0.1'
 ]
 
 
@@ -90,12 +102,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'human.wsgi.application'
 
-STORAGES = {
-    # ...
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+# STORAGES = {
+#     # ...
+#     "staticfiles": {
+#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#     },
+# }
 
 
 # Database
