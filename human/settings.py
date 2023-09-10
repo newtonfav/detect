@@ -35,8 +35,6 @@ SESSION_COOKIE_SECURE = True
 
 SECURE_SSL_REDIRECT = True
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
