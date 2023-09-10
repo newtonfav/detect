@@ -29,6 +29,18 @@ SECRET_KEY = 'newtonfav_is_good_programmmer_randonw_string_ldl_so_odkeklskskkskk
 DEBUG = False
 
 
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+CSRF_COOKIE_SECURE = True
+
+SECURE_HSTS_PRELOAD = True
+
+SESSION_COOKIE_SECURE = True
+
+SECURE_SSL_REDIRECT = True
+
+
 if not DEBUG:
     # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
@@ -37,17 +49,6 @@ if not DEBUG:
     # Turn on WhiteNoise storage backend that takes care of compressing static files
     # and creating unique names for each version so they can safely be cached forever.
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-    SECURE_HSTS_SECONDS = 31536000  # 1 year
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-
-    CSRF_COOKIE_SECURE = True
-
-    SECURE_HSTS_PRELOAD = True
-
-    SESSION_COOKIE_SECURE = True
-
-    SECURE_SSL_REDIRECT = True
 
 
 ALLOWED_HOSTS = [
