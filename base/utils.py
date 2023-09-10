@@ -27,7 +27,12 @@ def detect_face(img):
     # Draw rectangle around the faces
     draw_rectangle(img_up, faces)
 
-    cv2.imwrite('./static/test.jpg', img_up)
+    success = cv2.imwrite('./static/test.jpg', img_up)
+
+    if success:
+        print("Image was successfully saved.")
+    else:
+        print("Failed to save the image.")
 
     # print(faces)
     if len(faces) == 1:

@@ -24,8 +24,6 @@ def upload_file(request):
 
             file_name = uploaded_file.name  # Get the original file name
 
-            print(file_name)
-
             form.save()
             face_img = detect_face(f'./../media/uploads/{file_name}')
             os.remove(os.path.join(settings.MEDIA_ROOT,
