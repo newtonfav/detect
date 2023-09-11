@@ -27,7 +27,9 @@ def detect_face(img, dir):
     # Draw rectangle around the faces
     draw_rectangle(img_up, faces)
 
-    cv2.imwrite(f'./static/{dir}', img_up)
+    override_img = os.path.join(settings.STATIC_FILES, f'{dir}')
+
+    cv2.imwrite(override_img, img_up)
 
     # print(faces)
     if len(faces) == 1:
