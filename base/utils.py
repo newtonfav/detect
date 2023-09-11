@@ -8,7 +8,7 @@ def draw_rectangle(img_up, faces):
         cv2.rectangle(img_up, (x, y), (x + w, y + h), (255, 0, 0), 2)
 
 
-def detect_face(img):
+def detect_face(img, dir):
     xml_path = os.path.join(settings.XML_ROOT,
                             'haarcascade_frontalface_default.xml')
 
@@ -27,7 +27,7 @@ def detect_face(img):
     # Draw rectangle around the faces
     draw_rectangle(img_up, faces)
 
-    cv2.imwrite('./static/test.jpg', img_up)
+    cv2.imwrite(f'./static/{dir}', img_up)
 
     # print(faces)
     if len(faces) == 1:

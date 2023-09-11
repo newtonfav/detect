@@ -26,10 +26,11 @@ def upload_file(request):
             # directory_path = os.path.join(STATIC_FILES, 'uploads')
 
             form.save()
-            face_img = detect_face(f'./../media/uploads/{file_name}')
+            file_names = os.listdir(settings.STATIC_FILES)
+            face_img = detect_face(
+                f'./../media/uploads/{file_name}', file_names[0])
             os.remove(os.path.join(settings.MEDIA_ROOT,
                                    f'./../media/uploads/{file_name}'))
-            file_names = os.listdir(settings.STATIC_FILES)
 
             # Redirect to a success page or do something else
             return render(request, 'success.html', {'response': face_img, 'image_url': file_names[0]})
